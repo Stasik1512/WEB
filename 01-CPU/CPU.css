@@ -1,0 +1,22 @@
+﻿/*CSS - Cascade Style Sheet(Каскадные таблицы стилей)*/
+body {
+    font-size: 24px; /*изменение размера*/
+    /*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif*/ /*изменение шрифта*/
+    font-family: Roboto Mono;
+}
+
+
+p {
+    text-align: justify;
+    s
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: Italic;
+    font-weight: 300;
+}
+
