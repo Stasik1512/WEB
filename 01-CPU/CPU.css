@@ -3,22 +3,44 @@
 
 
 
-body {
-    font-size: 24px; /*изменение размера*/
-    /*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif*/ /*изменение шрифта*/
-    font-family: Roboto Mono;
-}
-p {
-    text-align: justify;
-    s
+body
+{
+	padding: 0px 48px;
+	font-size: 24px; /*изменение размера*/
+	/*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif*/ /*изменение шрифта*/
+	font-family: Roboto Mono;
 }
 
-figure {
-    text-align: center;
+p
+{
+	text-align: justify;
+	/*font-style: italic;*/
 }
 
-figcaption {
-    font-style: Italic;
-    font-weight: 300;
+	p::first-letter
+	{
+		margin-left: 52px;
+		/*        font-size: 40px;*/
+	}
+
+figure
+{
+	text-align: center;
 }
 
+figcaption
+{
+	font-style: Italic;
+	font-weight: 300;
+}
+
+.citation
+{
+	border-left: solid 4px #cfb227;
+	margin: 32px;
+	margin-right: 0px;
+	padding-left: 32px; /*Такой padding применяется со всех сторон*/
+	/*padding: 0px 32px;             0 - верх/низ, 32px - лево/право* /
+    /*padding: 0px 32px 64px;        0 - верх, 32рх - лево/право, 64px - низ*/
+	/*padding: 0px 32px 64px 128px;  /*По часовой стрелке начиная сверху*/
+}
