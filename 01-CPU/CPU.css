@@ -1,11 +1,13 @@
 ﻿/*CSS - Cascade Style Sheet(Каскадные таблицы стилей)*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 body {
     font-size: 24px; /*изменение размера*/
     /*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif*/ /*изменение шрифта*/
     font-family: Roboto Mono;
 }
-
-
 p {
     text-align: justify;
     s
