@@ -44,3 +44,23 @@ figcaption
     /*padding: 0px 32px 64px;        0 - верх, 32рх - лево/право, 64px - низ*/
 	/*padding: 0px 32px 64px 128px;  /*По часовой стрелке начиная сверху*/
 }
+
+dt
+{
+	float:left; /* для того чтобы dt dd могли быть в одной строке*/
+	font-weight:bold;
+	width: 256px;
+
+}
+dd
+{
+	margin-left:256px;
+	border:solid 0px;
+	
+}
+dl
+{
+	color: dimgray;
+	font-weight:300;
+}
+
