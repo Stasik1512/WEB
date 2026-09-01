@@ -64,3 +64,49 @@ dl
 	font-weight:300;
 }
 
+/*---------------------------------------------------------------------------------------------------------------*/
+table
+{
+	
+	border-collapse:collapse;
+	width: 80%;
+	margin: 0px auto;
+}
+table, thead
+{
+	border: solid 3px;
+}
+th, td
+{
+	border: solid 1px;
+}
+thead th
+{
+	padding: 10px;
+	background-color:aquamarine;
+	/*color:aliceblue;*/
+}
+td
+{
+	text-align:center;
+}
+tbody th
+{
+	text-align:left;
+	background-color:lightblue;
+}
+table:hover
+{
+	box-shadow: 0px, 0px, 82px 0px gray; /*НЕ РАБОТАЕТ*/
+	/*			1	  2		3	4	 5																*/
+	/*1- смещение тени по оси ох
+	2- смещение тени по оси оу
+	3-blur, показывает, на каком расст тень сольется с фоном и уйдет в ноль
+	4-Spread, показывает, на сколько тень расшииряется по сравнению с объектом ее отбрасывающим
+	5-цвет тени*/
+}
+tr
+{
+	box-shadow: inset 0px 0px 4px 0px blue; /*РАБОТАЕТ НЕКОРЕКТНО*/
+}
+
