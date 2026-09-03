@@ -97,7 +97,7 @@ tbody th
 }
 table:hover
 {
-	box-shadow: 0px, 0px, 82px 0px gray; /*НЕ РАБОТАЕТ*/
+	box-shadow: 0px 0px 82px 0px gray; 
 	/*			1	  2		3	4	 5																*/
 	/*1- смещение тени по оси ох
 	2- смещение тени по оси оу
@@ -105,8 +105,19 @@ table:hover
 	4-Spread, показывает, на сколько тень расшииряется по сравнению с объектом ее отбрасывающим
 	5-цвет тени*/
 }
-tr
+tr:hover
 {
 	box-shadow: inset 0px 0px 4px 0px blue; /*РАБОТАЕТ НЕКОРЕКТНО*/
 }
+/*----------------------------------------------------------------------------------------*/
 
+a:hover
+{
+	font-weight:800;
+	color: black;
+}
+a:active
+{
+	background-color: black;
+	color: white;
+}
