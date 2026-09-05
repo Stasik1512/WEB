@@ -7,7 +7,11 @@
 	<style>
 		body
 		{
-			display:flex;
+			display: flex;
+			/*background-image: radial-gradient(circle,#7a9e7e,#d4c84a 20%,#e8896a 80%);*/
+			background-image: conic-gradient(from 35deg, #7a9e7e,  55deg,#d4c84a,#e8896a, #7a9e7e);
+			
+			background-attachment: fixed;
 		}
 		.shadow-box-1, .shadow-box-2 
 		{
@@ -22,6 +26,14 @@
 				-50px	-50px	50px	0px		green,
 				 50px	 50px	50px	0px		blue,
 				-100px	 100px	50px	0px		red;
+		}
+		.shadow-box-2
+		{
+			border: solid 5px slategray;
+			box-shadow: 0px 0px 0px 30px white;
+			border-radius: 128px;
+			/*radial-gradient(#e8896a,#d4c84a 80%)*/
+			background-image: conic-gradient(white 0deg, white 90deg, darkblue 90deg,darkblue 180deg, white 180deg, white 270deg, darkblue 270deg, darkblue 360deg);
 		}
 		.shadow-box-1 ~ .shadow-box-2
 		{
