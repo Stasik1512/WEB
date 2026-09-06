@@ -27,10 +27,22 @@
 				 50px	 50px	50px	0px		blue,
 				-100px	 100px	50px	0px		red;
 		}
+		.BMW
+		{
+			width:384px;
+			height:384px;
+			border: solid 5px darkblue;
+			border-radius:192px;
+			margin:200px auto;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}
 		.shadow-box-2
 		{
+			margin: 0px auto;
 			border: solid 5px slategray;
-			box-shadow: 0px 0px 0px 30px white;
+			box-shadow: 0px 0px 0px 59px white;
 			border-radius: 128px;
 			/*radial-gradient(#e8896a,#d4c84a 80%)*/
 			background-image: conic-gradient(white 0deg, white 90deg, darkblue 90deg,darkblue 180deg, white 180deg, white 270deg, darkblue 270deg, darkblue 360deg);
@@ -53,7 +65,12 @@
 </head>
 <body>
 	<h1>Shadows</h1>
-	<div class="shadow-box-2"></div>
+
+	<div class="BMW">
+		<div class="shadow-box-2"></div>
+	</div>
+
+
 	<div class="shadow-box-1">
 		<div>
 			<div class="shadow-box-2"></div>
@@ -62,7 +79,5 @@
 
 
 	<div class="shadow-box-2"></div>
-
-	
 </body>
 </html>
