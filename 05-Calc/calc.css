@@ -5,14 +5,14 @@
 }
 .main-window
 {
-	border: solid 1px;
+	/*border: solid 1px;*/
 	width: 400px;
 	height:300px;
 }
 .iconsm
 {
-	width:32px;
-	height:32px;
+	width:28px;
+	height:28px;
 }
 .icon-and-title
 {
@@ -57,11 +57,30 @@
 .title-bar
 {
 	height:38px;
-	background-color: blue;
+	/*background-color: blue;*/
 	color:aliceblue;
+
 	font-family:Tahoma;
 
 	display:flex;
 	justify-content:space-between; /*выравниавание по горизонтали*/
 	align-items:center;  /*выравнивание по вертикале*/
-}
+
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+
+	background-image:linear-gradient(to bottom,
+		rgb(50, 140, 250),
+		rgb(50, 140, 250),
+		rgb(3, 92, 230),
+		rgb(3, 92, 230),
+		rgb(3, 92, 230),
+		rgb(3, 92, 230),
+		rgb(0, 90, 234),
+		rgb(0, 90, 234),
+		rgb(0, 90, 234),
+		rgb(0, 90, 234)
+	);
+
+	box-shadow:inset 0px -1px 8px 0px darkblue;
+	}
