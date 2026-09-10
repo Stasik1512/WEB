@@ -67,4 +67,14 @@ fieldset
 	width:45%;
 	margin:5px auto;
 }
+.EULA
+{
+	overflow:scroll;
+	width:48%;
+	height: 300px;
+	border: solid 1px;
+	font-size: 12px;
+	text-align:left;
+	padding-right:2%;
+}
 
