@@ -1,0 +1,39 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+body
+{
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+table
+{
+	border-collapse: collapse;
+	width: 80%;
+	margin: 0px auto;
+}
+
+table, thead
+{
+	border: solid 2px;
+}
+
+th, td
+{
+	border: solid 1px;
+}
+
+thead th
+{
+	padding: 10px;
+}
+
+td
+{
+	text-align: center;
+}
+
+tbody th
+{
+	text-align: left;
+}
