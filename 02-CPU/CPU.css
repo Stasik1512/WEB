@@ -9,11 +9,12 @@ body
 	font-size: 24px; /*изменение размера*/
 	/*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif*/ /*изменение шрифта*/
 	font-family: Roboto Mono;
-/*	background-color:wheat;*/
+	/*	background-color:wheat;*/
 	/*	background-image:linear-gradient(to right, blue,red);*/
 	/*background-image:linear-gradient(to bottom right, blue,red);*/
 	/*background-image:linear-gradient(150deg,#7a9e7e,#9b7fc2);*/
 	/*background-image: linear-gradient(150deg,#e8896a,#d4c84a);*/
+	background-image: linear-gradient(#e0b0b4,#b8bfc2);
 	background-attachment: fixed;
 }
 
