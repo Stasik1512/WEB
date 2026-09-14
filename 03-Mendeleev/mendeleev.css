@@ -23,11 +23,6 @@ th, td
 	border: solid 1px;
 }
 
-thead th
-{
-	padding: 10px;
-}
-
 td
 {
 	text-align: center;
@@ -36,4 +31,25 @@ td
 tbody th
 {
 	text-align: left;
+}
+.pink
+{
+	background-color:lightpink;
+}
+.yellow
+{
+	background-color:lemonchiffon;
+}
+.skyblue
+{
+
+	background-color:lightblue;
+}
+.period
+{
+	text-align:center;
+}
+.row
+{
+	text-align:center;
 }
