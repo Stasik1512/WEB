@@ -49,16 +49,20 @@
 }
 	.control-button:hover
 	{
-		background-image: linear-gradient(to bottom right, rgb(189,189,249),
-						  rgb(39,104,249),
-						  rgb(149,149,249));
+		background-image: linear-gradient(to bottom right,
+							rgb(189,189,249),
+							rgb(39,104,249),
+							rgb(149,149,249)
+		);
 	}
 	.controle-button:active
 	{
 		background-image:none;
 		background-color: rgb(50,50,200);
-		box-shadow:inset -3px -1px 7px 0px #FFBBBB, inset -2px -1px 5px 0px #770000;
+		box-shadow: inset -3px -1px 7px 0px #FFBBBB,
+					inset -2px -1px 5px 0px #770000;
 	}
+	
 .close-button
 {
 	background-color:rgb(221, 77, 58);
@@ -70,6 +74,12 @@
 							rgb(220, 177, 157),
 							rgb(255, 77, 57),
 							rgb(220, 177, 157));
+	}
+	.close-button:active
+	{
+		background-image: none;
+		background-color:rgb(220, 77, 57);
+		box-shadow: inset -2px -1px 8px 0px #FF8888, inset 2px 1px 8px 0px #770000;
 	}
 .control-button-signature
 {
