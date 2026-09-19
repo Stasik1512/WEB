@@ -1,0 +1,7 @@
+/*alert("Hello");
+		{
+			var name = prompt("Введите ваше имя: ");
+		}
+        document.writeln("Привет " + name + '<br>');
+        document.writeln('Привет ' + name + "<br>");
+		document.writeln(`<h2> Привет ${name} <h2>`) ;*/ итерполяция строк
