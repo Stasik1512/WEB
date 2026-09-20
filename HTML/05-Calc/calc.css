@@ -2,6 +2,8 @@
 {
 	background-image:url('img/bliss.jpg');
 	background-size:cover;
+	display:flex;
+	justify-content:center;
 }
 .main-window
 {
@@ -221,7 +223,24 @@
 .buttons-container button
 {
 	color: blue;
+	background-color: rgb(250, 248, 246); 
+	font-size: 17px;
+	border:solid 1.5px darkblue;
+	border-radius:5px;
+
+	box-shadow:inset 0px 0px 5px 0px gray;
 }
+	.buttons-container button:hover
+	{
+		background-color: white; 
+
+	}
+	.buttons-container button:active
+	{
+		background-color: #E0E0E0; 
+		box-shadow:inset 0px -2px 5px 0px darkgray;
+
+	}
 .buttons-container .memory-button,.buttons-container .operation-button, .clear-buttons > button
 {
 	color: red;
