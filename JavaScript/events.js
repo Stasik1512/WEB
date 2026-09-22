@@ -16,3 +16,16 @@ function power()
 	let exp = document.getElementById('exponent').value;
 	document.getElementById('power').innerHTML = `${base}<sup>${exp}</sup> = ${base**exp}`;
 }
+function setBackgroundColor()
+{
+	document.body.style.backgroundColor = document.getElementById("background-color").value;
+}
+function setForegroundColor(e)
+{
+	//document.body.style.color = document.getElementById("foreground-color").value;
+	document.body.style.color = e.target.value
+}
+function setColor(e)
+{
+	document.body.style[e.target.id === 'foreground-color' ? 'color' : 'backgroundColor'] = e.target.value;
+}

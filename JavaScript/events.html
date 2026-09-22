@@ -22,6 +22,27 @@
 		<input type="number" placeholder="Показатель степени"	value="0"	id="exponent"	onchange="power()">
 		<span id="power"></span>
 	</div>
+
+	<div class="images-and-colors">
+
+		<div class="photo-container">
+
+		</div>
+
+
+
+		<div class="colors">
+			<div>
+				<label for="background-color">Цвет фона:</label>
+				<input type="color" id="background-color" oninput="setColor(event)">
+			</div>
+
+			<div>
+				<label for="foreground-color">Цвет текста</label>
+				<input type="color" id="foreground-color" oninput="setColor(event)">
+			</div>
+		</div>
+	</div>
 	<script src="events.js"></script>
 </body>
 </html>

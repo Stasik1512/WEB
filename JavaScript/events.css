@@ -22,3 +22,14 @@
 	{
 		margin:0px;
 	}
+/*------------------------------------------------------------*/
+.images-and-colors, .colors
+{
+	display: flex;
+	justify-content:space-between;
+}
+
+input[type =color]
+{
+	margin-right:32px;
+}
