@@ -2,11 +2,43 @@
 {
 	font-size:32px;
 }
-.header{
+.header
+{
 	display:flex;
 	justify-content:space-between;
 	border-bottom:solid 1px gray;
+	align-items:center;
 }
+	.header >h2, .header > h5
+	{
+		margin: 8px;
+	}
+#switch-background
+{
+	width:32px;
+	height:32px;
+	background-size:32px 32px;
+	margin: 12px;
+}
+.dark
+{
+	background:#323232;
+	color:white;
+}
+	.dark #switch-background
+	{
+		background-image:url('sun.png');
+		filter: brightness(0) invert(1);
+	}
+.light
+{
+	background: white;
+	color:black;
+}
+	.light #switch-background
+	{
+		background-image:url('moon.png');
+	}
 .factorial
 {
 	display: flex;
