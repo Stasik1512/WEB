@@ -85,3 +85,49 @@ function tick_timer()
 	document.getElementById("weekday").style.visibility = document.getElementById("show-weekday").checked ? "visible" : "hidden";
 	setTimeout(tick_timer, 100); //вызов таймера каждые 100мс
 }
+
+document.getElementById("btn-start").addEventListener("click", startCountdownTimer);
+function startCountdownTimer()
+{
+	let targetDateControl = document.getElementById("target-date");
+	let targetTimeControl = document.getElementById("target-time");
+	let btnStart = document.getElementById("btn-start");
+	if(btnStart.value == "Start")
+	{
+		btnStart.value = "Stop";
+		targetDateControl.disable = targetTimeControl.disable = true;
+		tickCountdown();
+	}
+	else
+	{
+		btnStart.value = "Start";
+		targetDateControl.disable = targetTimeControl.disable = false;
+
+	}
+
+}
+function tickCountdown()
+{
+	let now = new Date();
+	let targetDate = document.getElementById("target-date").valueAsDate;
+	let targetTime = document.getElementById("target-time").valueAsDate; 
+
+	//Выравниваем часовой пояс
+	targetDate.setHours(targetDate.getHours() + targetDate.getTimezoneOffset() / 60);
+	targetTime.setHours(targetTime.getHours() + targetTime.getTimezoneOffset() / 60);
+
+	//Сводим целевые дату  и в рмя в одину переменную
+	targetTime.setFullYear(targetDate.getFullYear());
+	targetTime.setMonths(targetDate.getMonths());
+	targetTime.setDate(targetDate.getDate());
+
+
+	//Определяем разницу во времени
+	let timestamp = targetTime - now;
+	document.getElementById("target-date-value").innerHTML = targetDate;
+	document.getElementById("target-time-value").innerHTML = targetTime;
+	document.getElementById("timestamp").innerHTML = timestamp;
+
+	setTimeout(tickCountdown, 100);
+}
+
