@@ -75,14 +75,35 @@ body
 	{
 		margin:0px;
 	}
-/*------------------------------------------------------------*/
+/*//////////////////////////////////////////////////////////////////////*/
 .images-and-colors, .colors
 {
 	display: flex;
 	justify-content:space-between;
 }
 
+
+.photo-container > .image-container, img
+{
+	width: 300px;
+	height: 350px;
+}
+.photo-container > .image-container
+{
+	border: solid 1px;
+}
 input[type =color]
 {
 	margin-right:32px;
 }
+/*////////////////////////////////////// TIME //////////////////////////////////////////////////*/
+#clock
+{
+	text-align:center;
+	font-size: 48px;
+}
+#clock-controls
+{
+	font-size: 32px;
+}
+

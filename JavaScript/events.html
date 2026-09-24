@@ -3,59 +3,86 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-	<link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="events.css">
     <title>Events</title>
 </head>
 <body class="light">
+
     <div class="header">
-		<h2>Events</h2>
+        <h2>Events</h2>
         <h5 id="mouse-coords"></h5>
         <div>
-            <input type="number" value="3" id="switch-background-delay" />
-			<label for="switch-background-delay">Delay:</label>
+            <input type="number" value="3" id="switch-background-delay">
+            <label for="switch-background-delay">Delay:</label>
             <div id="switch-background">
-                <!--<img src="moon.png" />-->
             </div>
         </div>
-	</div>
+    </div>
 
-	<div id="factorial-container" class="task">
-		<h2>Factorial</h2>
-		<input type="number" id="factorial-source">
-		<!--<button onclick ="factorial()">Calculate</button>-->
-		<input type="button" placeholder="Введите число"		value="Calculate"			onclick="factorial()">
-		<span id="factorial-result"></span>
-	</div>
+    <details>
+        <summary>Простейшие задачи</summary>
+        <div id="factorial-container" class="task">
+            <h2>Factorial</h2>
+            <input type="number" id="factorial-source">
+            <!--<button onclick ="factorial()">Calculate</button>-->
+            <input type="button" placeholder="Введите число" value="Calculate" onclick="factorial()">
+            <span id="factorial-result"></span>
+        </div>
 
-	<div id="power-container" class="task">
-		<h2>Power</h2>
-		<input type="number" placeholder="Основание степени"				id="base"		onchange="power()">
-		<input type="number" placeholder="Показатель степени"	value="0"	id="exponent"	onchange="power()">
-		<span id="power"></span>
-	</div>
-
-	<div class="images-and-colors">
-
-		<div class="photo-container">
-
-		</div>
+        <div id="power-container" class="task">
+            <h2>Power</h2>
+            <input type="number" placeholder="Основание степени" id="base" onchange="power()">
+            <input type="number" placeholder="Показатель степени" value="0" id="exponent" onchange="power()">
+            <span id="power"></span>
+        </div>
+    </details>
 
 
-
-		<div class="colors">
-			<div>
-				<label for="background-color">Цвет фона:</label>
-				<input type="color" id="background-color" oninput="setColor(event)">
-			</div>
-
-			<div>
-				<label for="foreground-color">Цвет текста</label>
-				<input type="color" id="foreground-color" oninput="setColor(event)">
-			</div>
-		</div>
-	</div>
+    <details>
+        <summary>Цвета и картинки</summary>
+        <div class="images-and-colors">
+            <div class="photo-container">
+                <div class="image-container">
+                    <img src="" alt="Фото студента" id="image">
+                </div>
+                <input type="file" id="image-file" onchange="setImage()">
+            </div>
 
 
-	<script src="events.js"></script>
+            <div class="colors">
+                <div>
+                    <label for="background-color">Цвет фона:</label>
+                    <input type="color" id="background-color" oninput="setColor(event)">
+                </div>
+
+                <div>
+                    <label for="foreground-color">Цвет текста</label>
+                    <input type="color" id="foreground-color" oninput="setColor(event)">
+                </div>
+            </div>
+        </div>
+    </details>
+
+    <h2>Дата и время</h2>
+    <h3 id="full-time"></h3>
+    <div id="clock">
+        <div id="current-time">
+            <span id="hours"></span> :
+            <span id="minutes"></span> :
+            <span id="seconds"></span>
+        </div>
+        <div id="current-date">
+            <span id="years"></span> .
+            <span id="months"></span> .
+            <span id="days"></span>
+        </div>
+        <div id="weekday"></div>
+        <div id="clock-controls">
+            <input type="checkbox" id="show-date"><label for="show-date">Показать дату</label>
+            <input type="checkbox" id="show-weekday"><label for="show-weekday">Показать день недели</label>
+        </div>
+    </div>
+    
+    <script src="events.js"></script>
 </body>
 </html>
