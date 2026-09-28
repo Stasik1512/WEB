@@ -69,21 +69,22 @@ tick_timer();
 function tick_timer()
 {
 	let time = new Date();
-	document.getElementById("full-time").innerHTML	= time.toString();
+	document.getElementById("full-time").innerHTML = time.toString();
 
 	document.getElementById("hours").innerHTML		= addLeadingZero(time.getHours());
 	document.getElementById("minutes").innerHTML	= addLeadingZero(time.getMinutes());
 	document.getElementById("seconds").innerHTML	= addLeadingZero(time.getSeconds());
 
 	document.getElementById("years").innerHTML		= addLeadingZero(time.getFullYear());
-	document.getElementById("months").innerHTML		= addLeadingZero(time.getMonth() + 1);
+	document.getElementById("months").innerHTML		= addLeadingZero(time.getMonth()+1);
 	document.getElementById("days").innerHTML		= addLeadingZero(time.getDate());
 
-	document.getElementById("weekday").innerHTML		= time.toLocaleDateString("ru",{weekday:'long'});
-	
+	document.getElementById("weekday").innerHTML = time.toLocaleDateString("ru", {weekday:'long'});
+
 	document.getElementById("current-date").style.visibility = document.getElementById("show-date").checked ? "visible" : "hidden";
 	document.getElementById("weekday").style.visibility = document.getElementById("show-weekday").checked ? "visible" : "hidden";
-	setTimeout(tick_timer, 100); //вызов таймера каждые 100мс
+
+	setTimeout(tick_timer, 100);
 }
 
 document.getElementById("btn-start").addEventListener("click", startCountdownTimer);
@@ -95,13 +96,13 @@ function startCountdownTimer()
 	if(btnStart.value == "Start")
 	{
 		btnStart.value = "Stop";
-		targetDateControl.disable = targetTimeControl.disable = true;
+		targetDateControl.disabled = targetTimeControl.disabled = true;
 		tickCountdown();
 	}
 	else
 	{
 		btnStart.value = "Start";
-		targetDateControl.disable = targetTimeControl.disable = false;
+		targetDateControl.disabled = targetTimeControl.disabled = false;
 
 	}
 
@@ -118,16 +119,34 @@ function tickCountdown()
 
 	//Сводим целевые дату  и в рмя в одину переменную
 	targetTime.setFullYear(targetDate.getFullYear());
-	targetTime.setMonths(targetDate.getMonths());
+	targetTime.setMonth(targetDate.getMonth());
 	targetTime.setDate(targetDate.getDate());
-
 
 	//Определяем разницу во времени
 	let timestamp = targetTime - now;
+	let duration = Math.trunc(timestamp / 1000);
+
 	document.getElementById("target-date-value").innerHTML = targetDate;
 	document.getElementById("target-time-value").innerHTML = targetTime;
 	document.getElementById("timestamp").innerHTML = timestamp;
+	document.getElementById("duration").innerHTML = duration;
 
+	
+	const SECONDS_PER_MINUTE = 60;
+	const SECONDS_PER_HOURE = 3600;
+	const SECONDS_PER_DAY = 86400;
+	const SECONDS_PER_WEEK = 604800;
+	const DAYS_PER_MONTH = 365.5/ 12;
+	const SECONDS_PER_MONTH = DAYS_PER_MONTH * SECONDS_PER_DAY;
+	const SECONDS_PER_YEAR = SECONDS_PER_DAY * 365 + SECONDS_PER_HOURE * 6;
+
+	//Снова разделяем дату и время для удобства вычислений
+	let time_of_day = duration % SECONDS_PER_DAY;
+	let date = duration - time_of_day;
+	document.getElementById("hours-unit").innerHTML = addLeadingZero(Math.trunc(time_of_day / SECONDS_PER_HOURE));
+	time_of_day = time_of_day % SECONDS_PER_HOURE;
+	document.getElementById("minutes-unit").innerHTML = addLeadingZero(Math.trunc(time_of_day / SECONDS_PER_MINUTE));
+	document.getElementById("seconds-unit").innerHTML = addLeadingZero(time_of_day % SECONDS_PER_MINUTE);
 	setTimeout(tickCountdown, 100);
 }
 

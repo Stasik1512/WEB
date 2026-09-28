@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -24,7 +23,6 @@
         <div id="factorial-container" class="task">
             <h2>Factorial</h2>
             <input type="number" id="factorial-source">
-            <!--<button onclick ="factorial()">Calculate</button>-->
             <input type="button" placeholder="Введите число" value="Calculate" onclick="factorial()">
             <span id="factorial-result"></span>
         </div>
@@ -46,7 +44,6 @@
                 </div>
                 <input type="file" id="image-file" onchange="setImage()">
             </div>
-
 
             <div class="colors">
                 <div>
@@ -85,17 +82,17 @@
         </div>
     </details>
 
-
     <div id="countdown-timer">
         <h2>Countdown timer</h2>
-        <input type="date" id="target-date" value="2026-09-24">
-        <input type="time" id="target-time" value="1:00">
+        <input type="date" id="target-date" value="2026-09-28">
+        <input type="time" id="target-time" value="01:00">
         <input type="button" id="btn-start" value="Start">
     </div>
     <pre id="debug">
-        <label for="target-date-value">Target date:</label><span id="target-date-value"></span>
-        <label for="target-time-value">Target time:</label><span id="target-time-value"></span>
-        <label for="timestamp">Time</label><span id="timestamp"></span>
+    <label for="target-date-value">Target date: </label><span id="target-date-value"></span>
+    <label for="target-time-value">Target time: </label><span id="target-time-value"></span>
+    <label for="timestamp">Timestamp: </label><span id="timestamp"></span>
+    <label for="duration">Duration </label><span id="duration"></span>
     </pre>
     <div id="display">
         <div class="time-block">
