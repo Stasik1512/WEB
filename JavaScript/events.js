@@ -124,7 +124,7 @@ function tickCountdown()
 	targetTime.setDate(targetDate.getDate());
 
 	//Определяем разницу во времени
-	let timestamp = targetTime - now;
+	let timestamp = Math.abs(targetTime - now);
 	let duration = Math.trunc(timestamp / 1000);
 
 	document.getElementById("target-date-value").innerHTML = targetDate;
@@ -206,6 +206,12 @@ function tickCountdown()
 	document.getElementById("minutes-unit").innerHTML = addLeadingZero(Math.trunc(time_of_day / SECONDS_PER_MINUTE));
 	document.getElementById("seconds-unit").innerHTML = addLeadingZero(time_of_day % SECONDS_PER_MINUTE);
 	setTimeout(tickCountdown, 100);
+
+	if(duraction === 0)
+	{
+		let player = document.getElementById("player");
+		player.play();
+	}
 }
 function createTimeBlock(name, value)
 {
