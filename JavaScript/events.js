@@ -109,6 +109,7 @@ function startCountdownTimer()
 }
 function tickCountdown()
 {
+	if(document.getElementById("btn-start").value === "Start") return;
 	let now = new Date();
 	let targetDate = document.getElementById("target-date").valueAsDate;
 	let targetTime = document.getElementById("target-time").valueAsDate; 
@@ -131,7 +132,6 @@ function tickCountdown()
 	document.getElementById("timestamp").innerHTML = timestamp;
 	document.getElementById("duration").innerHTML = duration;
 
-	
 	const SECONDS_PER_MINUTE = 60;
 	const SECONDS_PER_HOURE = 3600;
 	const SECONDS_PER_DAY = 86400;
@@ -143,10 +143,96 @@ function tickCountdown()
 	//Снова разделяем дату и время для удобства вычислений
 	let time_of_day = duration % SECONDS_PER_DAY;
 	let date = duration - time_of_day;
+	let hours_block = document.getElementById("hours-unit").parentElement;
+	let years = Math.trunc(date/SECONDS_PER_YEAR);
+	if(years > 0)
+	{
+		date = date % SECONDS_PER_YEAR;
+		let years_unit = document.getElementById("years_unit");
+		if(years_unit == null)
+		{
+			let years_block = createTimeBlock("years", years);
+			hours_block.before(years_block);
+		}
+		else
+		{
+			years_unit,innerHTML = addLeadingZero(years);
+		}
+	}
+	else removeTimeBlock("years");
+	let months = Math.trunc(date/SECONDS_PER_MONTH);
+	if(months > 0)
+	{
+		date = date % SECONDS_PER_MONTH;
+		let mounts_unit = document.getElementById("mounts_unit");
+		if(months_unit == null)
+		{
+			let months_block = createTimeBlock("months", months);
+			hours_block.before(months_block);
+		}
+		else
+		{
+			months_unit.innerHTML = addLeadingZero(months);
+		}
+	}
+	else removeTimeBlock("months");
+	let weeks = Math.trunc(date / SECONDS_PER_WEEK);
+	if (weeks > 0)
+	{
+		date = date % SECONDS_PER_WEEK;
+		let weeks_unit = document.getElementById("weeks-unit");
+		if (weeks_unit == null)
+			hours_block.before(createTimeBlock("weeks", weeks));
+		else
+			weeks_unit.innerHTML = addLeadingZero(weeks);
+	}
+	else removeTimeBlock("weeks");
+
+	let days = Math.trunc(date / SECONDS_PER_DAY);
+	if (days > 0)
+	{
+		date = date % SECONDS_PER_DAY;
+		let days_unit = document.getElementById("days-unit");
+		if (days_unit == null)
+			hours_block.before(createTimeBlock("days", days));
+		else days_unit.innerHTML = addLeadingZero(days);
+	}
+	else removeTimeBlock("days");
+
+
+	//time of day calculation
 	document.getElementById("hours-unit").innerHTML = addLeadingZero(Math.trunc(time_of_day / SECONDS_PER_HOURE));
 	time_of_day = time_of_day % SECONDS_PER_HOURE;
 	document.getElementById("minutes-unit").innerHTML = addLeadingZero(Math.trunc(time_of_day / SECONDS_PER_MINUTE));
 	document.getElementById("seconds-unit").innerHTML = addLeadingZero(time_of_day % SECONDS_PER_MINUTE);
 	setTimeout(tickCountdown, 100);
 }
+function createTimeBlock(name, value)
+{
+	let time_block = document.createElement("div");
+	time_block.className = "time-block";
+	let unit = document.createElement("div");
+	unit.id = `${name}-unit`;
+	unit.className = "time-unit";
+	unit.innerHTML = addLeadingZero(value);
 
+	let marker = document.createElement("div");
+	marker.id = `${name}-marker`;
+	marker.className = "time-marker";
+	marker.innerHTML = name;
+
+	// собираем созданные ранее блоки в один модуль
+	time_block.prepend(unit);
+	time_block.append(marker);
+	return time_block;
+}
+function removeTimeBlock(name)
+{
+	let unit = document.getElementById(`${name} - unit`);
+	if(unit != null)
+	{
+		let block = unit.parentElement;
+		let display = block.parentElement;
+		display.removeChild(block);
+	}
+}
