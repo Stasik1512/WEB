@@ -148,7 +148,7 @@ function tickCountdown()
 	if(years > 0)
 	{
 		date = date % SECONDS_PER_YEAR;
-		let years_unit = document.getElementById("years_unit");
+		let years_unit = document.getElementById("years-unit");
 		if(years_unit == null)
 		{
 			let years_block = createTimeBlock("years", years);
@@ -164,15 +164,15 @@ function tickCountdown()
 	if(months > 0)
 	{
 		date = date % SECONDS_PER_MONTH;
-		let mounts_unit = document.getElementById("mounts_unit");
-		if(months_unit == null)
+		let mounts_unit = document.getElementById("months-unit");
+		if(mounts_unit == null)
 		{
 			let months_block = createTimeBlock("months", months);
 			hours_block.before(months_block);
 		}
 		else
 		{
-			months_unit.innerHTML = addLeadingZero(months);
+			mounts_unit.innerHTML = addLeadingZero(months);
 		}
 	}
 	else removeTimeBlock("months");
