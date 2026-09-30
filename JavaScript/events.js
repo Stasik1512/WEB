@@ -207,7 +207,7 @@ function tickCountdown()
 	document.getElementById("seconds-unit").innerHTML = addLeadingZero(time_of_day % SECONDS_PER_MINUTE);
 	setTimeout(tickCountdown, 100);
 
-	if(duraction === 0)
+	if(duration === 0)
 	{
 		let player = document.getElementById("player");
 		player.play();

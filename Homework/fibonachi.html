@@ -1,33 +1,22 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Фибоначчи</title>
 </head>
 <body>
-
     <h1>Числа Фибоначчи</h1>
-    <input id="number" type="number">
+
+    <h2>Введите до какого числа выводить ряд</h2>
+    <input id="number1" type="number" value="50">
     <button id="button">Показать</button>
-    <div id="result"></div>
-    <script>
-        document.getElementById("button").onclick = function() 
-        {
+    <div id="result1" style="margin-top:10px; font-size:18px;"></div>
 
-            let n = Number(document.getElementById("number").value);
-            let a = 0;
-            let b = 1;
-            let result = "";
+    <h2>Введите сколько чисел нужно вывести</h2>
+    <input id="countInput" type="number" value="10" min="1">
+    <button onclick="showFibonachi()">Вывести</button>
+    <div id="result2" style="margin-top:10px; font-size:18px;"></div>
 
-            while (a <= n) 
-            {
-                result += a + " ";
-                let c = a + b;
-                a = b;
-                b = c;
-            }
-            document.getElementById("result").innerHTML = result;
-        };
-    </script>
+    <script src="fibonachi.js"></script>
 </body>
 </html>
