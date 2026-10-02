@@ -146,4 +146,8 @@ input[type =color]
 	color:aliceblue;
 	text-align:center;
 }
+.sound
+{
+	border-radius: 18px;
+}
 

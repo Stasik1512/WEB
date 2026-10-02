@@ -161,66 +161,12 @@ function tickCountdown()
 	date = handleTimeBlock(date, "years");
 	console.log(`date after: ${date}`);
 	console.log(`----------------------------------`);
-	
-	/*let years = Math.trunc(date/SECONDS_AMOUNT_IN["year".toUpperCase()]);
-	if(years > 0)
-	{
-		date = date % SECONDS_AMOUNT_IN.YEAR;
-		let years_unit = document.getElementById("years-unit");
-		if(years_unit == null)
-		{
-			let years_block = createTimeBlock("years", years);
-			hours_block.before(years_block);
-		}
-		else
-		{
-			years_unit.innerHTML = addLeadingZero(years);
-		}
-	}
-	else removeTime Block("years");*/
 
 	date = handleTimeBlock(date,"months");
-	/*let months = Math.trunc(date/SECONDS_PER_MONTH);
-	if(months > 0)
-	{
-		date = date % SECONDS_PER_MONTH;
-		let mounts_unit = document.getElementById("months-unit");
-		if(mounts_unit == null)
-		{
-			let months_block = createTimeBlock("months", months);
-			hours_block.before(months_block);
-		}
-		else
-		{
-			mounts_unit.innerHTML = addLeadingZero(months);
-		}
-	}
-	else removeTimeBlock("months");*/
 
 	date = handleTimeBlock(date, "weeks");
-	/*let weeks = Math.trunc(date / SECONDS_PER_WEEK);
-	if (weeks > 0)
-	{
-		date = date % SECONDS_PER_WEEK;
-		let weeks_unit = document.getElementById("weeks-unit");
-		if (weeks_unit == null)
-			hours_block.before(createTimeBlock("weeks", weeks));
-		else
-			weeks_unit.innerHTML = addLeadingZero(weeks);
-	}
-	else removeTimeBlock("weeks");*/
 
 	date = handleTimeBlock(date,"days");
-	/*let days = Math.trunc(date / SECONDS_PER_DAY);
-	if (days > 0)
-	{
-		date = date % SECONDS_PER_DAY;
-		let days_unit = document.getElementById("days-unit");
-		if (days_unit == null)
-			hours_block.before(createTimeBlock("days", days));
-		else days_unit.innerHTML = addLeadingZero(days);
-	}
-	else removeTimeBlock("days");*/
 
 
 	//time of day calculation
@@ -233,6 +179,8 @@ function tickCountdown()
 	if(duration === 0)
 	{
 		let player = document.getElementById("player");
+		player.setAttribute("controls", "controls");
+		console.log(player.attributes);
 		player.play();
 	}
 }
@@ -269,26 +217,23 @@ function resetDisplay()
 {
 	let display = document.getElementById("display");
 	let children = display.children;
-	while(display.children[0].children[0].id != "hourse-unit")
-	{
+	while (display.children[0].children[0].id != "hours-unit")
 		display.children[0].remove();
-	}
-
-
 }
+
 function handleTimeBlock(date, name)
 {
-	name = name.substring(0, name.lenght - 1);
+	name = name.substring(0, name.length - 1);
 	let hours_block = document.getElementById("hours-unit").parentElement;
-	//let years = Math.trunc(date/SECONDS_PER_YEAR);
-	//console.log(SECONDS_AMOUNT_IN[name.substring(0,name.leght-1).toUpperCase()]);
-	let left = Math.trunc(date/SECONDS_AMOUNT_IN[name.toUpperCase()]);
-	if(left > 0)
+	//let years = Math.trunc(date / SECONDS_PER_YEAR);
+	//console.log(SECONDS_AMOUNT_IN[name.substring(0, name.length-1).toUpperCase()]);
+	let left = Math.trunc(date / SECONDS_AMOUNT_IN[name.toUpperCase()]);
+	if (left > 0)
 	{
 		date = date % SECONDS_AMOUNT_IN[name.toUpperCase()];
 		let unit = document.getElementById(`${name}s-unit`);
-		if(unit == null)
-		{ 
+		if (unit == null)
+		{
 			let block = createTimeBlock(`${name}s`, left);
 			hours_block.before(block);
 		}
@@ -297,6 +242,5 @@ function handleTimeBlock(date, name)
 	else removeTimeBlock(`${name}s`);
 	return date;
 }
-// не пропадает год
+// по истечению вр не пропадает прошедший год недел€ день
 // 12 мес€цув вместо года
-//ytn ujlf
