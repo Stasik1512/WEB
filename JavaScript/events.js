@@ -273,6 +273,8 @@ function resetDisplay()
 	{
 		display.children[0].remove();
 	}
+
+
 }
 function handleTimeBlock(date, name)
 {
