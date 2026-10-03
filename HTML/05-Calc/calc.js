@@ -32,7 +32,7 @@ function inputDigit()
 	display.value += this.innerHTML;
 	console.log(this);
 }
-document.onkeypress = function(e)
+/*document.onkeypress = function(e)
 {
 	if(e.key >= 0 && e.key <=9)
 	{
@@ -41,4 +41,17 @@ document.onkeypress = function(e)
 		console.log("DIGIT");
 	}
 	console.log(e);
+}*/
+
+document.onkeydown = function(e)
+{
+	let button = document.getElementById(`${e.key}`);
+	button.classList.add("button-active");
+}
+
+document.onkeyup = function(e)
+{
+	let button = document.getElementById(`${e.key}`);
+	if(button.classList!= null)
+		button.classList.remove("button-active");
 }
