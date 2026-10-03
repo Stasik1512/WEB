@@ -25,13 +25,6 @@ for (let i = 0; i < digitButtons.length; i++)
 	//document.getElementById(`${i}`).addEventListener("click", inputDigit);
 	digitButtons[i].addEventListener("click", inputDigit);
 }
-function inputDigit()
-{
-	let display = document.getElementById("display");
-	if(display.value === '0') display.value ='';
-	display.value += this.innerHTML;
-	console.log(this);
-}
 /*document.onkeypress = function(e)
 {
 	if(e.key >= 0 && e.key <=9)
@@ -42,7 +35,22 @@ function inputDigit()
 	}
 	console.log(e);
 }*/
+function inputDigit()
+{
+	/*let display = document.getElementById("display");
+	if(display.value === '0') display.value ='';
+	display.value += this.innerHTML;
+	console.log(this);*/
+	digit2display(this.innerHTML);
+}
 
+function  digit2display(digit)
+{
+	let display = document.getElementById("display");
+	if(display.value === '0') display.value ='';
+	display.value += digit;
+	console.log(this);
+}
 document.onkeydown = function(e)
 {
 	let button = document.getElementById(`${e.key}`);
@@ -54,4 +62,5 @@ document.onkeyup = function(e)
 	let button = document.getElementById(`${e.key}`);
 	if(button.classList!= null)
 		button.classList.remove("button-active");
+	digit2display(e.key);
 }
