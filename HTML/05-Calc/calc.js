@@ -60,8 +60,9 @@ document.onkeydown = function(e)
 		button.classList.add("button-active");
 	switch (e.key)
 	{
-		case "Escape": document.getElementById("C").classList.add("button-active"); break;
-		case "Enter" : document.getElementById("=").classList.add("button-active");	break;
+		case "Escape"		: document.getElementById("C").classList.add("button-active"); break;
+		case "Enter"		: document.getElementById("=").classList.add("button-active");	break;
+		case "Backspace"	: document.getElementById("Backspace").classList.add("button-active");	break;
 	}
 
 }
@@ -77,9 +78,27 @@ document.onkeyup = function(e)
 			document.getElementById("C").classList.remove("button-active"); 
 			document.getElementById("display").value = "0";
 			break;
-		case "Enter" : document.getElementById("=").classList.remove("button-active"); break;
+		case "Enter" : 
+			document.getElementById("=").classList.remove("button-active"); 
+			break;
+		case "Backspace" :	
+			document.getElementById("Backspace").classList.remove("button-active");
+			break;
 	}
 	if(e.key >= 0 && e.key <= 9 || e.key == '.')
 		digit2display(e.key);
-	if(e.key == "Backspace") // ÄÇÄÇ
+	if(e.key == "Backspace")
+	{
+		let display = document.getElementById("display");
+
+		if(display.value.length > 1)
+		{
+			display.value = display.value.slice(0, -1);
+		}
+		else
+		{
+			display.value = "0";
+		}
+	}
 }
+  
