@@ -11,6 +11,10 @@ let input = false;
 let input_operation = false;
 
 let digitButtons = document.getElementsByClassName("digit-button");
+let operationButtons = document.getElementsByClassName("operation-button");
+let clearButtons = document.getElementsByClassName("clear-button");
+console.log(operationButtons);
+console.log(clearButtons);
 console.log(digitButtons);
 /* for (let i = 0; i < digitButtons.length; i++)
 {
@@ -28,6 +32,19 @@ for (let i = 0; i < digitButtons.length; i++)
 {
 	//document.getElementById(`${i}`).addEventListener("click", inputDigit);
 	digitButtons[i].addEventListener("click", inputDigit);
+}
+for(let i =0; i < operationButtons.length; i++)
+{
+	operationButtons[i].addEventListener("click", SetState);
+}
+for(let i =0; i <clearButtons.length; i++)
+{
+	operationButtons[i].addEventListener("click", SetState);
+}
+function SetState()
+{
+	console.log(this.innerHTML);
+	Press(this.innerHTML);
 }
 /*document.onkeypress = function(e)
 {
@@ -79,20 +96,27 @@ document.onkeydown = function(e)
 
 document.onkeyup = function(e)
 {
-	console.log(e.key);
-	let button = document.getElementById(`${e.key}`);
+	Press(e.key)
+}
+function Press(key)
+{
+	console.log(key);
+	let button = document.getElementById(`${key}`);
 	if(button != null && button.classList != null)
 		button.classList.remove("button-active");
-	switch (e.key)
+	switch (key)
 	{
 		case "Backspace":	
 			document.getElementById("Backspace").classList.remove("button-active");
 			break;
 		case "Escape": 
+		case "C": 
+		case "CE": 
 			Clear();
 			document.getElementById("C").classList.remove("button-active"); 
 			break;
 		case "Enter":
+		case "=":
 			Calculate();
 			document.getElementById("=").classList.remove("button-active"); 
 			break;
@@ -105,13 +129,13 @@ document.onkeyup = function(e)
 			//input = false;
 			//if(operation != "")Calculate();
 			if(input)Calculate();
-			operation = e.key;
+			operation = key;
 			input_operation = true;
 		break;
 	}
 
-	if(e.key >= 0 && e.key <= 9 || e.key == '.')		digit2display(e.key);
-	if(e.key == "Backspace")
+	if(key >= 0 && key <= 9 || key == '.')		digit2display(key);
+	if(key == "Backspace")
 	{
 		let display = document.getElementById("display");
 
@@ -124,6 +148,7 @@ document.onkeyup = function(e)
 			display.value = "0";
 		}
 	}
+
 }
 	function Calculate()
 	{
