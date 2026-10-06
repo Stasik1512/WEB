@@ -5,6 +5,10 @@
 let buttons = document.getElementsByTagName("button");
 //console.log(buttons);
 //console.table(elemens);
+let a, b;
+let s;
+let input = false;
+let input_operation = false;
 
 let digitButtons = document.getElementsByClassName("digit-button");
 console.log(digitButtons);
@@ -46,12 +50,18 @@ function inputDigit()
 
 function  digit2display(digit)
 {
+	if(input_operation === true)
+	{
+		document.getElementById("display").value = "";
+		input_operation = false;
+	}	
 	let display = document.getElementById("display");
 	if(digit == ' ') return;
 	if(display.value === '0') display.value ='';
 	if(digit == '.' && display.value.includes('.')) return;
 	display.value += digit;
 	console.log(this);
+	input = true;
 }
 document.onkeydown = function(e)
 {
@@ -69,22 +79,36 @@ document.onkeydown = function(e)
 
 document.onkeyup = function(e)
 {
+	console.log(e.key);
 	let button = document.getElementById(`${e.key}`);
 	if(button != null && button.classList != null)
 		button.classList.remove("button-active");
 	switch (e.key)
 	{
+		case "Backspace":	
+			document.getElementById("Backspace").classList.remove("button-active");
+			break;
 		case "Escape": 
 			document.getElementById("C").classList.remove("button-active"); 
 			document.getElementById("display").value = "0";
 			break;
-		case "Enter" : 
+		case "Enter":
+			Calculate();
 			document.getElementById("=").classList.remove("button-active"); 
 			break;
-		case "Backspace" :	
-			document.getElementById("Backspace").classList.remove("button-active");
-			break;
+
+		case "+":
+		case "-":
+		case "*":
+		case "/":
+
+		operation = e.key;
+		input = false;
+		input_operation = true;
+		a = Number(document.getElementById("display").value);
+		break;
 	}
+
 	if(e.key >= 0 && e.key <= 9 || e.key == '.')
 		digit2display(e.key);
 	if(e.key == "Backspace")
@@ -101,4 +125,20 @@ document.onkeyup = function(e)
 		}
 	}
 }
+	function Calculate()
+	{
+		if(input)b = Number(document.getElementById("display").value); 
+		switch (operation)
+		{
+			case "+": a += b; break;
+			case "-": a -= b; break;
+			case "*": a *= b; break;
+			case "/": a /= b; break;
+		}
+		document.getElementById("display").value = a;
+		input = false;
+		input_operation = false;
+		document.getElementById("display").value = a;
+
+	}
   
