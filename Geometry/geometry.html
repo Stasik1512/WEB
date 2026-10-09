@@ -5,12 +5,22 @@
     <meta charset="utf-8" />
     <title>Geometry</title>
 </head>
+
 <body>
-    <h1>Geometry</h1>
-    <h2>Введите размер фигуры для ее вывода</h2>
-    <input id="size" type="number" placeholder="Введите размер: " value="5" min="1">
-    <button onclick="geometry()">Сгенерировать</button>
-    <div id="result"></div>
+    <details>
+        <summary>Geometry</summary>
+        <h2>Введите размер фигуры для ее вывода</h2>
+        <input id="size_geometry" type="number" placeholder="Введите размер: " value="5" min="1">
+        <button onclick="geometry()">Сгенерировать</button>
+        <div id="result"></div>
+    </details>
+    <details>
+        <summary>Chess</summary>
+        <h2>Введите размер доски</h2>
+        <input id="size_chess" type="number" value="5" min="1">
+        <button onclick="chess()">Сгенерировать</button>
+        <div id="ChessBoardResult"></div>
+    </details>
 
     <script src="geometry.js"></script>
 </body>

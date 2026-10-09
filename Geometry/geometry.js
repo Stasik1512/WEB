@@ -1,6 +1,6 @@
 function geometry() 
 {
-    let n = Number(document.getElementById("size").value);
+    let n = Number(document.getElementById("size_geometry").value);
     let result = document.getElementById("result");
 
     result.textContent = "";
@@ -92,7 +92,8 @@ function geometry()
     // ‘игура 5 Ч песочные часы
     figures += "6. ѕесочные часы\n";
 
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) 
+    {
         figures += " ".repeat(n - i - 1);
         figures += "/";
 
@@ -101,7 +102,8 @@ function geometry()
         figures += "\n";
     }
 
-    for (let i = n - 1; i >= 0; i--) {
+    for (let i = n - 1; i >= 0; i--) 
+    {
         figures += " ".repeat(n - i - 1);
         figures += "\\";
 
@@ -133,4 +135,42 @@ function geometry()
     result.style.whiteSpace = "pre";
     result.style.fontFamily = "monospace";
     result.textContent = figures;
+}
+function chess() 
+{
+    let n = Number(document.getElementById("size_chess").value);
+    let resultboard = document.getElementById("ChessBoardResult");
+
+    resultboard.textContent = "";
+
+    if (!Number.isInteger(n) || n < 1 || n > 30) 
+    {
+        resultboard.textContent = "¬ведите целое число от 1 до 30";
+        return;
+    }
+
+    let board = "";
+
+    for (let i = 0; i < n * 8; i++) 
+    {
+        for (let j = 0; j < n * 8; j++)
+        {
+            if ((Math.floor(i / n) + Math.floor(j / n)) % 2 === 0) 
+            {
+                board += "* ";
+            } 
+            else 
+            {
+                board += "  ";
+            }
+        }
+        board += "\n";
+    }
+
+    resultboard.style.fontFamily = "monospace";
+    resultboard.style.fontSize = "12px";
+    resultboard.style.lineHeight = "12px";
+    resultboard.style.letterSpacing = "0px";
+    resultboard.style.whiteSpace = "pre";
+    resultboard.textContent = board;
 }
