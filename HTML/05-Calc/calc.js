@@ -135,6 +135,39 @@ function Press(key)
 	}
 
 	if(key >= 0 && key <= 9 || key == '.')		digit2display(key);
+	if(key == "sqrt")
+	{
+		let display = document.getElementById("dispaly");
+		let number = Number(display.value);
+
+		if(number >= 0)
+		{
+			dispaly.value = Math.sqrt(number);
+		}
+		else
+		{
+			dispaly.value = "Ошибка";
+		}
+		a = Number(dispaly.value);
+		input = false;
+		input_operation = false;
+	}
+	if(key == "1/x")
+	{
+		let display = document.getElementById("dispaly");
+		let number = Number(dispaly.value);
+		if(number != 0)
+		{
+			display.value =  1 / number;
+		}
+		else
+		{
+			dispaly.value = "Ошибка";
+		}
+		a = Number(display.value);
+		input = false;
+		input_operation = false;
+	}
 	if(key == "Backspace")
 	{
 		let display = document.getElementById("display");
@@ -174,4 +207,4 @@ function Press(key)
 		document.getElementById("display").value = "0";
 
 	}
-  
+  // 1/x sqrt не получились  c ce backspase перестали рабортать мышь
